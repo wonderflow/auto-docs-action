@@ -28,7 +28,7 @@ cp -R doc/zh/* git-page/i18n/zh/docusaurus-plugin-content-docs/current/
 
 echo "git push"
 cd git-page
-if [[ -n "$VRESION" ]]
+if [[ -n "$VERSION" ]]
 then
   yarn add nodejieba
   if [ -e yarn.lock ]; then
@@ -38,7 +38,7 @@ then
   else
   npm i
   fi
-  version=$(echo $VRESION|sed -e 's/\/*.*\///g')
+  version=$(echo $VERSION|sed -e 's/\/*.*\///g')
   echo "version $version"
   yarn run docusaurus docs:version $version
 fi
