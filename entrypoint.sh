@@ -39,7 +39,8 @@ then
   npm i
   fi
   version=$(echo $VRESION|sed -e 's/\/*.*\///g')
-  yarn run docusaurus docs:version $V
+  echo "version $version"
+  yarn run docusaurus docs:version $version
 fi
 git add .
 git commit -m "github action auto sync"
