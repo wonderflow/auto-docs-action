@@ -6,6 +6,6 @@ RUN apk add --no-cache git openssh-client && \
 
 COPY LICENSE README.md /
 
-COPY entrypoint.sh /entrypoint.sh
+ADD *.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]

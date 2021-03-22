@@ -28,6 +28,19 @@ cp -R doc/zh/* git-page/i18n/zh/docusaurus-plugin-content-docs/current/
 
 echo "git push"
 cd git-page
+if [[ -n "$VRESION" ]]
+then
+  yarn add nodejieba
+  if [ -e yarn.lock ]; then
+  yarn install --frozen-lockfile
+  elif [ -e package-lock.json ]; then
+  npm ci
+  else
+  npm i
+  fi
+  version=$(echo $VRESION|sed -e 's/\/*.*\///g')
+  yarn run docusaurus docs:version $V
+fi
 git add .
 git commit -m "github action auto sync"
 git push origin master
