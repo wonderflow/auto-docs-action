@@ -17,6 +17,9 @@ git config --global user.email "actions@github.com"
 git config --global user.name "gh-actions"
 git clone --single-branch --depth 1 $1 git-page
 
+echo "sidebars updates"
+cat doc/sidebars.js > git-page/sidebars.js
+
 echo "clear en docs"
 rm -rf git-page/docs/*
 echo "clear zh docs"
