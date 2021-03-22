@@ -24,12 +24,12 @@ jobs:
       - uses: webfactory/ssh-agent@v0.5.0
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
-      - uees: sunny0826/auto-docs-action
-        env:
-          USE_SSH: true
-          GIT_USER: git
-          DEPLOYMENT_BRANCH: gh-pages
-        with:
-          gh-page: git@github.com:sunny0826/pod-lens.github.io.git
       - name: Push to GitHub Repo
+        uees: sunny0826/auto-docs-action
+            env:
+            USE_SSH: true
+            GIT_USER: git
+            DEPLOYMENT_BRANCH: gh-pages
+            with:
+            gh-page: git@github.com:sunny0826/pod-lens.github.io.git
 ```
