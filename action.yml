@@ -1,4 +1,7 @@
 name: 'Docusaurus Auto Actions'
+branding:
+  icon: "cloud-lightning"
+  color: "blue"
 description: 'Automatically process documents of Docusaurus.'
 author: 'sunny0826'
 inputs: 
