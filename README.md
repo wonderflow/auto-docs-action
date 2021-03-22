@@ -6,7 +6,7 @@ This action that automatically process documents of Docusaurus.
 
 ### `gh-page`
 
-- **必填** github page repo, must be the ssh address. eg: `git@github.com:sunny0826/pod-lens.github.io.git`
+- [**Required**] - github page repo, must be the ssh address. eg: `git@github.com:sunny0826/pod-lens.github.io.git`
 
 ## Example usage
 
