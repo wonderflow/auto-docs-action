@@ -41,7 +41,8 @@ then
   else
   npm i
   fi
-  version=$(echo $VERSION|sed -e 's/\/*.*\///g')
+  # release-0.0.1 -> v0.0.1
+  version=$(echo $VERSION|sed -e 's/\/*.*\/*-/v/g')
   echo "version $version"
   yarn run docusaurus docs:version $version
 fi
