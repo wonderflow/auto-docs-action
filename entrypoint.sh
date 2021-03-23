@@ -13,8 +13,8 @@ mkdir -p ~/.ssh
 cp /root/.ssh/* ~/.ssh/ 2> /dev/null || true
 
 echo "git clone"
-git config --global user.email "actions@github.com"
-git config --global user.name "gh-actions"
+git config --global user.email "gxd_1105@126.com"
+git config --global user.name "maoxian-bot"
 git clone --single-branch --depth 1 $1 git-page
 
 echo "sidebars updates"
