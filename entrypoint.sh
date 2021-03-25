@@ -26,8 +26,9 @@ echo "clear zh docs"
 rm -rf git-page/i18n/zh/docusaurus-plugin-content-docs/current/*
 
 echo "update docs"
-cp -R doc/en/* git-page/docs/
-cp -R doc/zh/* git-page/i18n/zh/docusaurus-plugin-content-docs/current/
+cp -R $2/en/* git-page/docs/
+cp -R $2/zh/* git-page/i18n/zh/docusaurus-plugin-content-docs/current/
+
 
 echo "git push"
 cd git-page

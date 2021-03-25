@@ -8,6 +8,9 @@ This action that automatically process documents of Docusaurus.
 
 - [**Required**] - github page repo, must be the ssh address. eg: `git@github.com:sunny0826/pod-lens.github.io.git`
 
+### `docs-path`
+- path of docs dir. default: `docs`
+
 ## Example usage
 
 ```yaml
