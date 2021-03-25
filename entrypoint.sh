@@ -18,7 +18,7 @@ git config --global user.name "maoxian-bot"
 git clone --single-branch --depth 1 $1 git-page
 
 echo "sidebars updates"
-cat doc/sidebars.js > git-page/sidebars.js
+cat $2/sidebars.js > git-page/sidebars.js
 
 echo "clear en docs"
 rm -rf git-page/docs/*
@@ -27,7 +27,7 @@ rm -rf git-page/i18n/zh/docusaurus-plugin-content-docs/current/*
 
 echo "update docs"
 cp -R $2/en/* git-page/docs/
-cp -R $2/zh/* git-page/i18n/zh/docusaurus-plugin-content-docs/current/
+cp -R $2/zh-CN/* git-page/i18n/zh/docusaurus-plugin-content-docs/current/
 
 
 echo "git push"
