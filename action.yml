@@ -17,3 +17,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.gh-page }}
+    - ${{ inputs.docs-path }}
