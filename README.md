@@ -1,6 +1,6 @@
-# Docusaurus Auto Actions
+# KubeVela Website Sync Action
 
-This action that automatically process documents of Docusaurus.
+This action that automatically sync documents from `kubevela` to `kubevela.io`.
 
 ## Inputs
 
@@ -9,6 +9,7 @@ This action that automatically process documents of Docusaurus.
 - [**Required**] - github page repo, must be the ssh address. eg: `git@github.com:sunny0826/pod-lens.github.io.git`
 
 ### `docs-path`
+
 - path of docs dir. default: `docs`
 
 ## Example usage
@@ -18,21 +19,32 @@ name: docs
 on:
   push:
     paths:
-      - 'doc/**'
+      - 'docs/**'
+    branches:
+      - master
+      - release-*
 jobs:
-  gh-push:
+  latest:
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' }}
     steps:
       - uses: actions/checkout@v1
-      - uses: webfactory/ssh-agent@v0.5.0
-        with:
-          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - name: Push to GitHub Repo
-        uses: sunny0826/auto-docs-action
+        uses: sunny0826/auto-docs-action@v0.2.0
         env:
-          USE_SSH: true
-          GIT_USER: git
-          DEPLOYMENT_BRANCH: gh-pages
+          SSH_PRIVATE_KEY: ${{ secrets.GH_PAGES_DEPLOY }}
         with:
-          gh-page: git@github.com:sunny0826/pod-lens.github.io.git
+          gh-page: git@github.com:oam-dev/kubevela.io.git
+  released:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref != 'refs/heads/master' }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Push to GitHub Repo
+        uses: sunny0826/auto-docs-action@v0.2.0
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GH_PAGES_DEPLOY }}
+          VERSION: ${{ github.ref }}
+        with:
+          gh-page: git@github.com:oam-dev/kubevela.io.git
 ```

@@ -1,9 +1,9 @@
-name: 'Docusaurus Auto Actions'
+name: 'KubeVela website sync'
 branding:
   icon: "cloud-lightning"
   color: "blue"
-description: 'Automatically process documents of Docusaurus.'
-author: 'sunny0826'
+description: 'Automatically sync documents to KubeVela website.'
+author: 'wonderflow'
 inputs: 
   gh-page:
     description: 'github page repo'
