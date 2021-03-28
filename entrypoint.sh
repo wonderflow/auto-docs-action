@@ -71,6 +71,11 @@ then
   yarn run docusaurus docs:version $version
 fi
 
-git add .
-git commit -m "github action auto sync for $VERSION commit $COMMIT_ID"
-git push origin $3
+if git diff --quiet
+then
+  echo "nothing need to push, finished!"
+else
+  git add .
+  git commit -m "kubevela($COMMIT_ID) for $VERSION commit"
+  git push origin $3
+fi
