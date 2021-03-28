@@ -12,9 +12,13 @@ inputs:
     description: 'path of docs dir'
     required: true
     default: 'docs'
+  branch:
+    description: 'branch for the push target repo'
+    default: 'main'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.gh-page }}
     - ${{ inputs.docs-path }}
+    - ${{ inputs.branch }}

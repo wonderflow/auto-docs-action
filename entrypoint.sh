@@ -77,5 +77,5 @@ then
 fi
 
 git add .
-git commit -m "github action auto sync for $VERSION"
-git push origin master
+git commit -m "github action auto sync for $VERSION commit $COMMIT_ID"
+git push origin $3
