@@ -32,14 +32,9 @@ echo "clear zh docs"
 rm -r git-page/i18n/zh/docusaurus-plugin-content-docs/*
 echo "clear resources"
 rm -r git-page/resources/*
-echo "clear blog"
-rm -r git-page/blog/*
 
 echo "update resources"
 cp -R $2/resources/* git-page/resources/
-
-echo "update blog"
-cp -R $2/blog/zh/* git-page/blog/
 
 echo "update docs"
 cp -R $2/en/* git-page/docs/
